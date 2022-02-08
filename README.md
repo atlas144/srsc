@@ -20,21 +20,8 @@
       - [4.1.2.1 Packet structure](#4121-packet-structure)
     - [4.1.3 ACCEPTACK](#413-acceptack)
       - [4.1.3.1 Packet structure](#4131-packet-structure)
-  - [4.2 Data packets](#42-data-packets)
-    - [4.2.1 WRITE8](#421-write8)
-      - [4.2.1.1 Packet structure](#4211-packet-structure)
-    - [4.2.2 WRITE16](#422-write16)
-      - [4.2.2.1 Packet structure](#4221-packet-structure)
-    - [4.2.3 WRITE32](#423-write32)
-      - [4.2.3.1 Packet structure](#4231-packet-structure)
-    - [4.2.4 WRITE8CRIT](#424-write8crit)
-      - [4.2.4.1 Packet structure](#4241-packet-structure)
-    - [4.2.5 WRITE16CRIT](#425-write16crit)
-      - [4.2.5.1 Packet structure](#4251-packet-structure)
-    - [4.2.6 WRITE32CRIT](#426-write32crit)
-      - [4.2.6.1 Packet structure](#4261-packet-structure)
-  - [4.3 Restricted](#43-restricted)
-    - [4.3.1 Type 255](#431-type-255)
+  - [4.2 Restricted](#42-restricted)
+    - [4.2.1 Type 255](#421-type-255)
 - [5 Communication process flow](#5-communication-process-flow)
   - [5.1 Actors](#51-actors)
   - [5.2 Process](#52-process)
@@ -167,83 +154,9 @@ A notification that tells an transmitter that the packet has arrived correctly t
 | ---------- | - |
 | ***Information*** | `0x02` |
 
-### 4.2 Data packets
+### 4.2 Restricted
 
-#### 4.2.1 WRITE8
-
-- *code*: `0x40`
-
-A packet that carries a 1 byte message.
-
-##### 4.2.1.1 Packet structure
-
-| ***Byte*** | 0 | 1 |
-| ---------- | - | - |
-| ***Information*** | `0x40` | 1 byte of data |
-
-#### 4.2.2 WRITE16
-
-- *code*: `0x41`
-
-A packet that carries a 2 bytes message.
-
-##### 4.2.2.1 Packet structure
-
-| ***Byte*** | 0 | 1 - 2 |
-| ---------- | - | ----- |
-| ***Information*** | `0x41` | 2 bytes of data |
-
-#### 4.2.3 WRITE32
-
-- *code*: `0x42`
-
-A packet that carries a 4 bytes message.
-
-##### 4.2.3.1 Packet structure
-
-| ***Byte*** | 0 | 1 - 4 |
-| ---------- | - | - |
-| ***Information*** | `0x42` | 4 bytes of data |
-
-#### 4.2.4 WRITE8CRIT
-
-- *code*: `0x43`
-
-A packet that carries a 1 byte message and is sent multiple times to minimize chance of data loss.
-
-##### 4.2.4.1 Packet structure
-
-| ***Byte*** | 0 | 1 | 2 |
-| ---------- | - | - | - |
-| ***Information*** | `0x43` | Packet ID | 1 byte of data |
-
-#### 4.2.5 WRITE16CRIT
-
-- *code*: `0x44`
-
-A packet that carries a 2 bytes message and is sent multiple times to minimize chance of data loss.
-
-##### 4.2.5.1 Packet structure
-
-| ***Byte*** | 0 | 1 | 2 - 3 |
-| ---------- | - | - | - |
-| ***Information*** | `0x44` | Packet ID | 2 bytes of data |
-
-#### 4.2.6 WRITE32CRIT
-
-- *code*: `0x45`
-
-A packet that carries a 4 bytes message and is sent multiple times to minimize chance of data loss.
-
-##### 4.2.6.1 Packet structure
-
-| ***Byte*** | 0 | 1 | 2 - 5 |
-| ---------- | - | - | - |
-| ***Information*** | `0x45` | Packet ID | 4 bytes of data |
-
-### 4.3 Restricted
-
-#### 4.3.1 Type 255
+#### 4.2.1 Type 255
 
 Value 255 (0xFF) is used by serial communication libraries to indicate empty packet buffer, so the packet type will be indistinguishable.
 
