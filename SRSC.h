@@ -36,9 +36,9 @@ class SRSC {
     bool getBinaryPayload(uint8_t buffer[], uint8_t binaryPacket[]);
     template <typename T>
     void parseBinaryPayload(T& payload, uint8_t* binaryPayload) {
-      payload = 0;
+      payload = binaryPayload[0];
 
-      for (uint8_t i = 0; i < sizeof(payload); i++) {
+      for (uint8_t i = 1; i < sizeof(payload); i++) {
         payload += binaryPayload[i] * (255 * i);
       }
     }/*
