@@ -65,7 +65,6 @@ Packet type represents action or type of data in the packet payload.
     - e.g. ACCEPTACK
 2. *Data packets*
     - packets used to transfer data
-    - e.g. WRITE8
 
 #### 3.1.2 Packet type ranges
 
