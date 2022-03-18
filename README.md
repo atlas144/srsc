@@ -47,7 +47,7 @@ The protocol is primarily designed for fast data transfer in streams (e.g. measu
 
 ## 3 Packet structure
 
-| ***Byte*** | 0 | 1 | -/2 | 2/3 - 5/6 |
+| ***Byte*** | 0 | 1 | - / 2 | (2 - 5) / (3 - 6) |
 | ---------- | - | - | - | ------ |
 | ***Information*** | Packet type | Checksum | Packet ID | Payload |
 
